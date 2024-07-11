@@ -1,7 +1,28 @@
-version: '3.9'
-  services:
-    node:
-      ...
+version: '3.1'
 
-    mysql:
-      ...
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    image: ma_super_app
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: mydb
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
+
