@@ -19,3 +19,7 @@ Configure deux services : MySQL et l'application. L'application attend que la ba
 
 ## Accès
 Accéder à l'application à http://<votre-ip-serveur>:3000
+
+## Réponses aux questions
+
+2. a. L'option npm install --only=production permet d'installer seulement les dépendances nécessaires en production. Cette bonne pratique Docker permet de réduire la taille de l'image et d'améliorer la sécurité en n'installant pas les dépendances de développement.
